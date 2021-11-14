@@ -1,1 +1,3 @@
+# Deployment directories
 node_modules
+dist

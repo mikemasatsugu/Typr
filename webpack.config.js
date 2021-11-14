@@ -14,16 +14,23 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
+        test: /\.js$/,
+        exclude: /(node_modules)/,
         use: {
-          loader: "babel-loader"
-        },
-
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       },
       {
         test: /\.s?css$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        loader: "file-loader",
+        options: { name: '/static/[name].[ext]' }
       }
     ]
   }
