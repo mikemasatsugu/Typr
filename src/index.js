@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles.scss';
+import App from './App.jsx'
 
-const Index = () => {
-  return <div>Welcome To React!</div>;
-};
+// const Index = () => {
+//   return <div>Welcome to the Jungle</div>;
+// };
 
-ReactDOM.render(<Index />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

@@ -6,20 +6,21 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 module.exports = {
   entry: "./src/index.js",
-  output: { // NEW
-    path: path.join(__dirname, 'dist'),
-    filename: "[name].js"
-  }, // NEW Ends
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: "main.js"
+  },
+  mode: process.env.NODE_ENV, // process.env.NODE_ENV , 'development' , 'production'
   plugins: [htmlPlugin],
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
+        test: /\.jsx?/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env', '@babel/preset-react']
           }
         }
       },
@@ -33,5 +34,14 @@ module.exports = {
         options: { name: '/static/[name].[ext]' }
       }
     ]
-  }
+  },
+  devServer: {
+    static: {
+      publicPath: '/dist/',
+    },
+    port: 8080,
+    proxy: {
+      '/api': 'http://localhost:3000'
+    },
+  },
 };
