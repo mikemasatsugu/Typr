@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import wordsArray from '../data/wordsArray';
-
 import MainContainer from './components/MainContainer.jsx';
 
 const TOTALWORDS = 200;
