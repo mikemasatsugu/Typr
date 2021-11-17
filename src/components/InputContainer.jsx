@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 
-const InputContainer = () => {
+const InputContainer = ({ randomWords }) => {
+  console.log('randomWords in InputContainer.jsx: ', randomWords);
   return <div></div>;
 };
 

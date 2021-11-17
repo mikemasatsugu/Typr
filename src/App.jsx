@@ -4,9 +4,10 @@ import wordsArray from '../data/wordsArray';
 
 import MainContainer from './components/MainContainer.jsx';
 
-const App = (props) => {
+const App = () => {
   return (
     <div className="App">
+      <nav className="navbar"></nav>
       <MainContainer />
     </div>
   );

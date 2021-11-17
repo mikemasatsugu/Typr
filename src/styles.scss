@@ -1,5 +1,33 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+$bg-color: #212b42;
+$main-color: #add7ff;
+$caret-color: #962f7e;
+$sub-color: #5c7da5;
+$text-color: #91b4d5;
+$error-color: #df4576;
+$error-extra-color: #d996ac;
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Roboto,
     Arial, sans-serif;
   color: black;
+  background-color: $bg-color;
+  color: $text-color;
+}
+
+.navbar {
+  height: 75px;
+  width: 100%;
+  background-color: $main-color;
+}
+
+.main-container {
+  margin: 5vw 10vw;
+  display: flex;
+  flex-direction: column;
 }
