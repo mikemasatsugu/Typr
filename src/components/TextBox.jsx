@@ -5,7 +5,7 @@ const TextBox = ({ randomWords }) => {
   // const randomWords = randomizeWords(wordsArray);
 
   return (
-    <div className="test-words">
+    <div className="text-box disable-scrollbars">
       {randomWords.map((str, i) => (
         <span key={i}>{str} </span>
       ))}

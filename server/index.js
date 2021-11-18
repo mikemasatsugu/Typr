@@ -3,24 +3,18 @@ const path = require('path'); // NEW
 const mongoose = require('mongoose');
 const router = express.Router()
 
-mongoose.connect('mongodb://localhost/subscribers', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/history', { useNewUrlParser: true });
 const db = mongoose.connection;
 
 db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('Connected to database'))
-
-const mockResponse = {
-  foo: 'bar2',
-  bar: 'foo2'
-};
-
-
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.static(path.resolve(__dirname, '../dist')));
 app.use(express.json());
+app.use(express.urlencoded())
 
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../dist/index.html')); // EDIT

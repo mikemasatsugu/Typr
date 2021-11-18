@@ -4,7 +4,6 @@ const historySchema = new mongoose.Schema({
   date: {
     type: String,
     required: true,
-    default: Date.now,
   },
   wpm_raw: {
     type: Number,

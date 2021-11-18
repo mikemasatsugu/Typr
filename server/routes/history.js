@@ -5,6 +5,9 @@ const History = require('../models/history')
 
 // Get all
 router.get('/', historyController.getHistory, async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
   try {
     const history = await History.find();
     res.status(200).json(history);
@@ -14,7 +17,10 @@ router.get('/', historyController.getHistory, async (req, res) => {
 })
 // Create one
 router.post('/', async (req, res) => {
-  console.log(req.body)
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+  console.log('POST request body: ', req.body)
   const data = new History({
     date: req.body.date,
     wpm_raw: +req.body.wpm_raw,
@@ -33,7 +39,11 @@ router.post('/', async (req, res) => {
 
 // Delete all
 router.delete('/', async (req, res) => {
-  const results = await History.deleteMany({});
+  res.header("Access-Control-Allow-Origin", 'https://localhost:8080');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+  console.log('delete router reached')
+  await History.deleteMany({});
   res.sendStatus(200);
 });
 
