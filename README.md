@@ -1,1 +1,1 @@
-# SoloProject
+# Typr
