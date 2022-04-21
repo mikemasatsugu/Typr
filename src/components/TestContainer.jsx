@@ -5,7 +5,7 @@ import TextBox from './TextBox.jsx';
 import wordsArray from '../../data/wordsArray';
 import ScoreDisplay from './ScoreDisplay.jsx';
 
-const SECONDS = 5;
+const SECONDS = 30;
 
 const TestContainer = () => {
   /*---------- State ----------*/
@@ -64,8 +64,8 @@ const TestContainer = () => {
             setStatus('finished');
             setCurrInput('');
             //
-            setPrevWpmRaw(Math.round((charCount / 5) * 12));
-            setPrevWpm(Math.round((charCount / 5) * 12));
+            setPrevWpmRaw(Math.round((charCount / 5) * 13));
+            setPrevWpm(Math.round((charCount / 5) * 13));
             setPrevAcc(100);
             // console.log(prevWpmRaw, prevWpm, prevAcc);
 
@@ -138,6 +138,16 @@ const TestContainer = () => {
   }
   // console.log('state.randomWords in TestContainer.jsx: ', randomWords);
 
+  function getCharClass(inputWordIdx, inputCharIdx, char) {
+    if (
+      inputWordIdx === wordIdx &&
+      inputCharIdx === charIdx &&
+      currChar &&
+      status !== 'finished'
+    ) {
+      return 'has-background-cursor';
+    }
+  }
   return (
     <div className="test-container">
       <ScoreDisplay
@@ -159,7 +169,12 @@ const TestContainer = () => {
           onKeyDown={handleKeyDown}
         />
       </div>
-      <TextBox randomWords={randomWords} />
+      <TextBox
+        randomWords={randomWords}
+        getCharClass={getCharClass}
+        wordIdx={wordIdx}
+        charIdx={charIdx}
+      />
       <button className="start-btn" onClick={timer}>
         START
       </button>

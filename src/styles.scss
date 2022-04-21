@@ -103,3 +103,7 @@ body {
 .delete-history {
   opacity: 0.4;
 }
+
+.has-background-cursor {
+  background-color: $caret-color;
+}
